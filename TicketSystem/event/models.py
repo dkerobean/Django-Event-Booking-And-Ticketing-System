@@ -8,10 +8,7 @@ class Event(models.Model):
     title = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField(max_length=700, null=True)
     category = models.CharField(max_length=100, null=True)
-    event_type = (
-        ('venue', 'Venue'), 
-        ('Online', 'Online')
-    )
+    event_type = models.CharField(max_length=100, null=True, blank=True)
     duration = models.IntegerField(null=True, blank=True)
     gps_location = models.CharField(max_length=200, null=True, blank=True)
     price = models.IntegerField()

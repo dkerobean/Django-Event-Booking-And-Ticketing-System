@@ -9,16 +9,14 @@
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-        >
+          aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon">
             <i class="fa-solid fa-bars"></i>
           </span>
         </button>
         <a
           class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto"
-          href="index.html"
-        >
+          href="index.html">
           <div class="res-main-logo">
             <img src="images/logo-icon.svg" alt="" />
           </div>
@@ -31,8 +29,7 @@
           class="offcanvas offcanvas-start"
           tabindex="-1"
           id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
+          aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
             <div class="offcanvas-logo" id="offcanvasNavbarLabel">
               <img src="images/logo-icon.svg" alt="" />
@@ -41,8 +38,7 @@
               type="button"
               class="close-btn"
               data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
@@ -51,8 +47,7 @@
               <div class="create-bg">
                 <a
                   href="{% url 'create-event' %}"
-                  class="offcanvas-create-btn"
-                >
+                  class="offcanvas-create-btn">
                   <i class="fa-solid fa-calendar-days"></i>
                   <span>Create Event</span>
                 </a>
@@ -70,8 +65,7 @@
                   href="index.html#"
                   role="button"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   Explore Events
                 </a>
                 <ul class="dropdown-menu dropdown-submenu">
@@ -79,8 +73,7 @@
                     <a
                       class="dropdown-item"
                       href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/explore_events.html"
-                      >Explore Events</a
-                    >
+                      >Explore Events</a>
                   </li>
                   <li>
                     <a
@@ -433,15 +426,12 @@
                 <li class="profile-link">
                   
                   <a
-                    href="#"
-                    class="link-item"
-                    >My Profile</a
-                  >
+                    href="{% url 'user-profile' user.id %}"
+                    class="link-item">My Profile</a>
                   <a
                     href="{% url 'user-logout' %}"
                     class="link-item"
-                    >Sign Out</a
-                  >
+                    >Sign Out</a>
                 </li>
               </ul>
             </li>

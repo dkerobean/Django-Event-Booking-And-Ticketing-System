@@ -9,6 +9,12 @@ urlpatterns = [
     path('venue-event', views.createVenueEvent, name="venue-event"),
     
     path('events', views.allEvents, name="events"),
+    path('event/<str:pk>/', views.eventDetail, name="event-detail"),
+    
+    path('checkout/<str:pk>/', views.checkout, name="checkout"),
+    path('booking-confirmed/', views.bookingConfirm, name="confirm-booking"),
+
+
 
 
 

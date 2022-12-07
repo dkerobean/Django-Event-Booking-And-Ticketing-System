@@ -77,6 +77,7 @@ def createVenueEvent(request):
             
     return render(request, 'event/venue-event.html', context)
 
+
 def allEvents(request):
     
     profile = request.user.profile
@@ -101,3 +102,53 @@ def allEvents(request):
     
     
     return render(request, 'event/events.html', context)
+
+
+def eventDetail(request,pk):
+    
+    profile = request.user.profile
+    event = Event.objects.get(id=pk)
+    
+    
+    context ={
+        'profile':profile,
+        'event':event
+    }
+    
+    return render(request, 'event/event-detail.html', context)
+
+
+@login_required(login_url="user-login")
+def checkout(request, pk):
+    
+    profile = request.user.profile
+    event = Event.objects.get(id=pk)
+    
+    
+
+    if request.method == 'POST':
+        event.participants.add(profile)
+        return redirect('confirm-booking')
+    
+    
+    context = {
+        'profile': profile,
+        'event': event
+    }
+
+    
+    
+    return render(request, 'event/checkout.html', context)
+
+
+@login_required(login_url="user-login")
+def bookingConfirm(request):
+    
+    profile = request.user.profile
+    
+    context = {
+        'profile':profile
+    }
+    
+    
+    return render(request, 'event/booking-confirmed.html',context)

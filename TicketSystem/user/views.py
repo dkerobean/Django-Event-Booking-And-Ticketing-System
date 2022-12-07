@@ -3,6 +3,7 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import Profile
 
 
 
@@ -58,3 +59,19 @@ def userRegister(request):
 def userLogout(request):
     logout(request)
     return redirect('/')
+
+
+def userProfile(request, pk):
+    
+    profiles = request.user.profile
+    profile = User.objects.get(id=pk)
+    
+    
+    context = {
+        'profile':profiles
+    }
+    
+    return render(request, 'user/user-profile.html', context)
+
+
+

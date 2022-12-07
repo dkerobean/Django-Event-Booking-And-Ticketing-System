@@ -94,7 +94,7 @@
                     </div>
                     <div class="event-content">
                       <a
-                        href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/venue_event_detail_view.html"
+                        href="{% url 'event-detail' event.id %}"
                         class="event-title">
                         {{event.title}}</a>
                       <div class="duration-price-remaining">
