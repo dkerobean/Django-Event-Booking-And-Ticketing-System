@@ -1,0 +1,46 @@
+{% load static %}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="../../../../fonts.googleapis.com/css2@family=Roboto%253Aital,wght@0,300%3B0,400%3B0,500%3B0,700%3B0,900%3B1,100%3B1,300%3B1,400%3B1,500%3B1,700%3B1,900&amp;display=swap.css" rel="stylesheet">
+<link href='{% static "vendor/unicons-2.0.1/css/unicons.css"%}' rel='stylesheet'>
+<link href="{% static 'css/datepicker.min.css'%}" rel="stylesheet">
+{% comment %} <link href="{% static 'css/jquery-steps.css'%}" rel="stylesheet"> {% endcomment %}
+<link href="{% static 'vendor/ckeditor5/sample/css/sample.css'%}" rel="stylesheet">
+
+
+
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="{% static 'js/jquery-3.6.0.min.js'%}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static 'vendor/OwlCarousel/owl.carousel.js'%}"></script>
+<script src="{% static 'vendor/bootstrap-select/js/bootstrap-select.min.js'%}"></script>
+<script src="{% static 'vendor/ckeditor5/ckeditor.js' %}"></script>
+{% comment %} <script src="{% static 'js/jquery-steps.min.js'%}"></script> {% endcomment %}
+<script src="{% static 'js/datepicker.min.js'%}"></script>
+<script src="{% static 'js/i18n/datepicker.en.js'%}"></script>  
+<script src="{% static 'js/custom.js'%}"></script>
+<script src="{% static 'js/night-mode.js'%}"></script>
+<script>
+		$('#add-event-tab').steps({
+		  onFinish: function () {
+			alert('Wizard Completed');
+		  }
+		});		
+	</script>
+<script>
+		ClassicEditor
+		.create( document.querySelector( '#pd_editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+	</script>
+
+
+	
