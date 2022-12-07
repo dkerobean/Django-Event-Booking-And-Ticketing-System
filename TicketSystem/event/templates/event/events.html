@@ -1,0 +1,137 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  {% include 'includes/head.html' %}
+
+  <div class="wrapper">
+    <div class="hero-banner">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-8 col-md-10">
+            <div class="hero-banner-content">
+              <h2>Discover Events For All The Things You Love</h2>
+              <div class="search-form main-form">
+                <div class="row g-3">
+                  <form action="" method="GET">
+                  
+                  <div class="col-lg-12 col-md-12">
+                    <div class="form-group">
+                      <input type="text" name="q" class="form-control h_50" value="{{search_query}}" placeholder="Search Events...">
+                      <button class="main-btn btn-hover  mt-4" type="submit">Search<i class="fa fa-search ms-2"></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="explore-events p-80">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="event-filter-items">
+              <div class="featured-controls">
+                <div class="controls">
+                  <button type="button" class="control" data-filter="all">All</button>
+                  <button type="button" class="control" data-filter=".arts">Arts</button>
+                  <button type="button" class="control" data-filter=".business">Business</button>
+                  <button type="button" class="control" data-filter=".concert">Concert</button>
+                  <button type="button" class="control" data-filter=".workshops">Workshops</button>
+                  <button type="button" class="control" data-filter=".coaching_consulting">Coaching and Consulting</button>
+                  <button type="button" class="control" data-filter=".health_Wellness">Health and Wellbeing</button>
+                  <button type="button" class="control" data-filter=".volunteer">Volunteer</button>
+                  <button type="button" class="control" data-filter=".sports">Sports</button>
+                  <button type="button" class="control" data-filter=".free">Free</button>
+                </div>
+                <div class="row" data-ref="event-filter-content">
+                  
+                  
+                  
+                  {% for event in events %}
+                
+                <div
+                  class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix {{event.category}}"
+                  data-ref="mixitup-target">
+                  <div class="main-card mt-4">
+                    <div class="event-thumbnail">
+                      <a href="#"
+                        class="thumbnail-img">
+                        <img src="{{event.image.url}}" alt="" />
+                      </a>
+                      <span class="bookmark-icon" title="Bookmark"></span>
+                    </div>
+                    <div class="event-content">
+                      <a
+                        href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/venue_event_detail_view.html"
+                        class="event-title"
+                        >{{event.title}} {{event.category}}</a
+                      >
+                      <div class="duration-price-remaining">
+                        
+                        {% if event.price == 0 %}
+                        <span class="duration-price">Free*</span>
+                        {% else %}
+                        <span class="duration-price">GHS ${{event.price}}*</span>
+                        {% endif %}
+
+                        <span class="remaining">
+                            {% if event.total_tickets == 0  %}
+                                <i class="fa-solid fa-ticket fa-rotate-90"></i>Sold Out</span>
+                            {% else %}
+                                <i class="fa-solid fa-ticket fa-rotate-90"></i>{{event.total_tickets}}
+                            Remaining</span>
+                          {% endif %}
+                      </div>
+                    </div>
+                    <div class="event-footer">
+                      <div class="event-timing">
+                        <div class="publish-date">
+                          <span
+                            ><i class="fa-solid fa-calendar-day me-2"></i>{{event.event_date}}</span
+                          >
+                          
+                        </div>
+                        <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>{{event.created_at|timesince}} ago</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {% endfor %}
+
+
+                </div>
+                <div class="browse-btn">
+                  <a href="explore_events.html#" class="main-btn btn-hover">See More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>	
+		var containerEl = document.querySelector('[data-ref~="event-filter-content"]');
+
+		var mixer = mixitup(containerEl, {
+			selectors: {
+				target: '[data-ref~="mixitup-target"]'
+			}
+		});
+	</script>
+
+
+
+  {% include 'includes/footer.html' %}
+{% endblock %}

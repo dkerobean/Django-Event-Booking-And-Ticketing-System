@@ -7,6 +7,9 @@ urlpatterns = [
     path('create-event', views.createEvent, name="create-event"),
     path('online-event', views.createOnlineEvent, name="online-event"),
     path('venue-event', views.createVenueEvent, name="venue-event"),
+    
+    path('events', views.allEvents, name="events"),
+
 
 
 ]

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.auth.models import User 
 import uuid 
@@ -11,7 +12,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(max_length=400, blank=True, null=True)
     profile_image = models.ImageField(null=True, blank=True,
-                                     upload_to='profiles', default='profile-imgs/avatar.svg')
+                                     upload_to='profile-imgs', default='profile-imgs/avatar.svg')
     background_image = models.ImageField(null=True, blank=True,
                                      upload_to='backgrounds', default='background-imgs/default.jpg')
     social_website = models.CharField(max_length=300, null=True, blank=True)
@@ -25,5 +26,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
     
+    
+
     
 

@@ -50,7 +50,7 @@
             <div class="offcanvas-top-area">
               <div class="create-bg">
                 <a
-                  href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/create.html"
+                  href="{% url 'create-event' %}"
                   class="offcanvas-create-btn"
                 >
                   <i class="fa-solid fa-calendar-days"></i>
@@ -402,7 +402,7 @@
             {% if request.user.is_authenticated %}
             <li class="dropdown account-dropdown">
               <a
-                href="index.html#"
+                href="#"
                 class="account-link"
                 role="button"
                 id="accountClick"
@@ -410,7 +410,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <img src="images/profile-imgs/img-13.jpg" alt="" />
+                <img src="{{profile.profile_image.url}}" alt="" />
                 <i class="fas fa-caret-down arrow-icon"></i>
               </a>
               <ul
@@ -420,9 +420,11 @@
                 <li>
                   <div class="dropdown-account-header">
                     <div class="account-holder-avatar">
-                      <img src="images/profile-imgs/img-13.jpg" alt="" />
+                      <img src="{{profile.profile_image.url}}" alt="" />
                     </div>
                     <h5>{{user.username}}</h5>
+                    
+
                     <p>
                       
                     </p>
@@ -431,7 +433,7 @@
                 <li class="profile-link">
                   
                   <a
-                    href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/organiser_profile_view.html"
+                    href="#"
                     class="link-item"
                     >My Profile</a
                   >
