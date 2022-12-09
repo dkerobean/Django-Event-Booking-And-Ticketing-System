@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UpdateUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
+from event.models import Event
+
+from django.db.models import Q
 
 
 
@@ -61,14 +64,49 @@ def userLogout(request):
     return redirect('/')
 
 
+def updateUser(request):
+    
+    profile = request.user.profile
+    form = UpdateUserForm(instance=profile)
+    
+    if request.method == 'POST':
+        form = UpdateUserForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid:
+            form.save()
+            return redirect('user-profile')
+            
+                   
+    context = {
+        'form':form, 
+        'profile':profile
+    }
+    
+    return render(request, 'user/user-profile.html', context)
+
+
+
 def userProfile(request, pk):
     
     profiles = request.user.profile
     profile = User.objects.get(id=pk)
-    
+    organised_event = Event.objects.filter(organizer__name=profiles.name) 
+    attending_event = Event.objects.filter(participants__name=profiles.name)
+
+    form = UpdateUserForm(instance=profiles)
+
+    if request.method == 'POST':
+        form = UpdateUserForm(request.POST, request.FILES, instance=profiles)
+        if form.is_valid:
+            form.save()
+            return redirect('user-profile', profile.id)
     
     context = {
-        'profile':profiles
+        'profile':profiles, 
+        'form':form, 
+        'organised_event':organised_event, 
+        'attending_event': attending_event
+        
+        
     }
     
     return render(request, 'user/user-profile.html', context)

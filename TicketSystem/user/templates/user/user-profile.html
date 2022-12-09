@@ -80,177 +80,28 @@
           <button type="button" class="close-model-btn" data-bs-dismiss="modal" aria-label="Close"><i class="uil uil-multiply"></i></button>
         </div>
         <div class="modal-body">
+          <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          
           <div class="model-content main-form">
             <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">First Name*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="John" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Last Name*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="Doe" />
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Bio*</label>
-                  <textarea class="form-textarea" placeholder=""></textarea>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Email*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="Johndoe@example.com" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Phone*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Website*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Facebook*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Instagram*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Twitter*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">LinkedIn*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Youtube*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <h4 class="address-title">Address</h4>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Address 1*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Address 2*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group main-form mt-4">
-                  <label class="form-label">Country*</label>
-                  <select class="selectpicker" data-size="5" title="Nothing selected" data-live-search="true">
-                    <option value="Algeria">Algeria</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Austria">Austria (Österreich)</option>
-                    <option value="Belgium">Belgium (België)</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Brazil">Brazil</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="Cyprus">Cyprus</option>
-                    <option value="Czech Republic">Czech Republic</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Dominican Republic">Dominican Republic</option>
-                    <option value="Estonia">Estonia</option>
-                    <option value="Finland">Finland</option>
-                    <option value="France">France</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Greece">Greece</option>
-                    <option value="Hong Kong">Hong Kong</option>
-                    <option value="Iceland">Iceland</option>
-                    <option value="India">India</option>
-                    <option value="Indonesia">Indonesia</option>
-                    <option value="Ireland">Ireland</option>
-                    <option value="Israel">Israel</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Japan">Japan</option>
-                    <option value="Latvia">Latvia</option>
-                    <option value="Lithuania">Lithuania</option>
-                    <option value="Luxembourg">Luxembourg</option>
-                    <option value="Malaysia">Malaysia</option>
-                    <option value="Mexico">Mexico</option>
-                    <option value="Nepal">Nepal</option>
-                    <option value="Netherlands">Netherlands</option>
-                    <option value="New Zealand">New Zealand</option>
-                    <option value="Norway">Norway</option>
-                    <option value="Paraguay">Paraguay</option>
-                    <option value="Peru">Peru</option>
-                    <option value="Philippines">Philippines</option>
-                    <option value="Poland">Poland</option>
-                    <option value="Portugal">Portugal</option>
-                    <option value="Singapore">Singapore</option>
-                    <option value="Slovakia">Slovakia</option>
-                    <option value="Slovenia">Slovenia</option>
-                    <option value="South Africa">South Africa</option>
-                    <option value="South Korea">South Korea</option>
-                    <option value="Spain">Spain</option>
-                    <option value="Sweden">Sweden</option>
-                    <option value="Switzerland">Switzerland</option>
-                    <option value="Tanzania">Tanzania</option>
-                    <option value="Thailand">Thailand</option>
-                    <option value="Turkey">Turkey</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="United States">United States</option>
-                    <option value="Vietnam">Vietnam</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">State*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">City/Suburb*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="form-group mt-4">
-                  <label class="form-label">Zip/Post Code*</label>
-                  <input class="form-control h_40" type="text" placeholder="" value="" />
-                </div>
-              </div>
+              {% for field in form %}
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group mt-4">
+                    <label class="form-label">{{field.label}}*</label>
+                    {{field}}
+                  </div>
+                </div>   
+              {% endfor %}
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
+          <div class="modal-footer">
           <button type="button" class="co-main-btn min-width btn-hover h_40" data-bs-target="#aboutModal" data-bs-toggle="modal" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="main-btn min-width btn-hover h_40">Update</button>
+          <button type="submit" class="main-btn min-width btn-hover h_40">Update</button>
         </div>
+        </div>
+        </form>
+        
       </div>
     </div>
   </div>
@@ -269,7 +120,6 @@
               <div class="col-12">
                 <div class="cover-img-btn">
                   <input type="file" id="cover-img" />
-                  <label for="cover-img"><i class="fa-solid fa-panorama me-3"></i>Changes Image</label>
                 </div>
               </div>
             </div>
@@ -285,32 +135,44 @@
                   <img src="{{profile.profile_image.url}}" alt="" />
                   <div class="avatar-img-btn">
                     <input type="file" id="avatar-img" />
-                    <label for="avatar-img"><i class="fa-solid fa-camera"></i></label>
+                    
                   </div>
                 </div>
                 <div class="user-dts">
                   <h4 class="user-name">{{profile.name}}<span class="verify-badge"><i class="fa-solid fa-circle-check"></i></span></h4>
-                  <span class="user-email"><a href="https://www.gambolthemes.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8de7e2e5e3e9e2e8cde8f5ece0fde1e8a3eee2e0">[email&#160;protected]</a></span>
                 </div>
                 <div class="ff-block">
                   <a href="organiser_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>0</span>Followers</a>
                   <a href="organiser_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>2</span>Following</a>
                 </div>
                 <div class="user-description">
-                  <p>Hey I am a John Doe</p>
+                  <p>{{profile.bio|slice:"200"}}...</p>
                 </div>
                 <div class="user-btns">
-                  <a href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/my_organisation_dashboard.html" class="co-main-btn co-btn-width min-width d-inline-block h_40">My Organisation<i class="fa-solid fa-right-left ms-3"></i></a>
+                  {% if organised_event.count > 0 %}
+                  <a href="#" class="co-main-btn co-btn-width min-width d-inline-block h_40">Organizer Dashboard <i class="fa-solid fa-right-left ms-3"></i></a>
+                  {% endif %}
                 </div>
                 <div class="profile-social-link">
                   <h6>Find me on</h6>
                   <div class="social-links">
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="fab fa-facebook-square"></i></a>
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Website"><i class="fa-solid fa-globe"></i></a>
+                    {% if profile.social_facebook %}
+                    <a href="{{profile.social_facebook}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    {% endif %}
+
+                    {% if profile.social_instagram %}
+                    <a href="{{social.social_instagram}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+
+                    {% if profile.social_youtube %}
+                    <a href="{{social.youtube}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="fab fa-youtube"></i></a>
+                    {% endif %}
+
+                    {% if profile.website %}
+                    <a href="{{social.social_website}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Website"><i class="fab fa-globe"></i></a>
+                    {% endif %}
+
+                    
                   </div>
                 </div>
               </div>
@@ -336,8 +198,8 @@
                     <div class="tab-pane fade active show" id="feed" role="tabpanel" aria-labelledby="feed-tab">
                       <div class="nav my-event-tabs mt-4" role="tablist">
                         <button class="event-link active" data-bs-toggle="tab" data-bs-target="#saved" type="button" role="tab" aria-controls="saved" aria-selected="true"><span class="event-count">1</span><span>Saved Events</span></button>
-                        <button class="event-link" data-bs-toggle="tab" data-bs-target="#organised" type="button" role="tab" aria-controls="organised" aria-selected="false"><span class="event-count">2</span><span>Organised Events</span></button>
-                        <button class="event-link" data-bs-toggle="tab" data-bs-target="#attending" type="button" role="tab" aria-controls="attending" aria-selected="false"><span class="event-count">1</span><span>Attending Events</span></button>
+                        <button class="event-link" data-bs-toggle="tab" data-bs-target="#organised" type="button" role="tab" aria-controls="organised" aria-selected="false"><span class="event-count">{{organised_event.count}}</span><span>Organised Events</span></button>
+                        <button class="event-link" data-bs-toggle="tab" data-bs-target="#attending" type="button" role="tab" aria-controls="attending" aria-selected="false"><span class="event-count">{{attending_event.count}}</span><span>Attending Events</span></button>
                       </div>
                       <div class="tab-content">
                         <div class="tab-pane fade show active" id="saved" role="tabpanel">
@@ -364,54 +226,46 @@
                         <div class="tab-pane fade" id="organised" role="tabpanel">
                           <div class="row">
                             <div class="col-md-12">
+                              {% for event in organised_event %}
                               <div class="main-card mt-4">
                                 <div class="card-top p-4">
                                   <div class="card-event-img">
-                                    <img src="images/event-imgs/img-6.jpg" alt="" />
+                                    <img src="{{event.image.url}}" alt="" />
                                   </div>
                                   <div class="card-event-dt">
-                                    <h5>Step Up Open Mic Show</h5>
-                                    <div class="evnt-time">Thu, Jun 30, 2022 4:30 AM</div>
+                                    <h5>{{event.title}}</h5>
+                                    <div class="evnt-time">{{event.event_date}}</div>
                                     <div class="event-btn-group">
                                       <button class="esv-btn me-2" onclick="window.location.href='create_online_event.html'"><i class="fa-solid fa-gear me-2"></i>Manage Event</button>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-                              <div class="main-card mt-4">
-                                <div class="card-top p-4">
-                                  <div class="card-event-img">
-                                    <img src="images/event-imgs/img-7.jpg" alt="" />
-                                  </div>
-                                  <div class="card-event-dt">
-                                    <h5>Tutorial on Canvas Painting for Beginners</h5>
-                                    <div class="evnt-time">Sun, Jul 17, 2022 5:30 AM</div>
-                                    <div class="event-btn-group">
-                                      <button class="esv-btn me-2" onclick="window.location.href='create_online_event.html'"><i class="fa-solid fa-gear me-2"></i>Manage Event</button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                              {% endfor %}
+                              
                             </div>
                           </div>
                         </div>
                         <div class="tab-pane fade" id="attending" role="tabpanel">
                           <div class="row">
                             <div class="col-md-12">
+                              {% for event in attending_event%}
                               <div class="main-card mt-4">
                                 <div class="card-top p-4">
                                   <div class="card-event-img">
-                                    <img src="images/event-imgs/img-6.jpg" alt="" />
+                                    <img src="{{event.image.url}}" alt="" />
                                   </div>
                                   <div class="card-event-dt">
-                                    <h5>Step Up Open Mic Show</h5>
-                                    <div class="evnt-time">Thu, Jun 30, 2022 4:30 AM</div>
+                                    <h5>{{event.title}}</h5>
+                                    <div class="evnt-time">{{event.event_date}}</div>
                                     <div class="event-btn-group">
-                                      <button class="esv-btn me-2" onclick="window.location.href='invoice.html'"><i class="fa-solid fa-arrow-up-from-bracket me-2"></i>View Ticket</button>
+                                      <button class="esv-btn saved-btn me-2"><i class="fa-regular fa-bookmark me-2"></i>Save</button>
+                                      <button class="esv-btn me-2" onclick="window.location.href='online_event_detail_view.html'"><i class="fa-solid fa-arrow-up-from-bracket me-2"></i>View</button>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                              {% endfor %}
                             </div>
                           </div>
                         </div>
@@ -426,26 +280,39 @@
                         <div class="about-details">
                           <div class="about-step">
                             <h5>Name</h5>
-                            <span>Joginder Singh</span>
+                            <span>{{profile.name}}</span>
                           </div>
                           <div class="about-step">
                             <h5>Tell us about yourself and let people know who you are</h5>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt interdum nunc et auctor. Phasellus quis pharetra sapien. Integer ligula sem, sodales vitae varius in, varius eget augue.</p>
+                            <p class="mb-0"> {{profile.bio}}</p>
                           </div>
                           <div class="about-step">
-                            <h5>Find me on</h5>
+                            <h5>Social Links</h5>
                             <div class="social-links">
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="fab fa-facebook-square"></i></a>
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><i class="fab fa-twitter"></i></a>
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="fab fa-youtube"></i></a>
-                              <a href="organiser_profile_view.html#" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Website"><i class="fa-solid fa-globe"></i></a>
+                              {% if profile.social_facebook %}
+                              <a href="{{profile.social_facebook}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="fab fa-facebook-square"></i></a>
+                              {% endif %}
+
+                              {% if profile.social_instagram %}
+                              <a href="{{social.social_instagram}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="fab fa-instagram"></i></a>
+                              {% endif %}
+
+                              {% if profile.social_youtube %}
+                              <a href="{{social.youtube}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="fab fa-youtube"></i></a>
+                              {% endif %}
+
+                              {% if profile.website %}
+                              <a href="{{social.social_website}}" class="social-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Website"><i class="fab fa-globe"></i></a>
+                              {% endif %}
                             </div>
                           </div>
                           <div class="about-step">
+                            <h5>Email</h5>
+                            <p class="mb-0">{{profile.email}}</p>
+                          </div>
+                          <div class="about-step">
                             <h5>Address</h5>
-                            <p class="mb-0">00 Challis St, Newport, Victoria, 0000, Australia</p>
+                            <p class="mb-0">{{profile.location}}</p>
                           </div>
                         </div>
                       </div>
@@ -709,13 +576,14 @@
                       </div>
                     </div>
                     <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                      {% for event in attending_event %}
                       <div class="main-card mt-4">
                         <div class="card-top p-4">
                           <div class="card-event-img">
-                            <img src="images/event-imgs/img-7.jpg" alt="" />
+                            <img src="{{event.image.url}}" alt="" />
                           </div>
                           <div class="card-event-dt">
-                            <h5>Tutorial on Canvas Painting for Beginners</h5>
+                            <h5>{{event.title}}</h5>
                             <div class="invoice-id">
                               Invoice ID : <span>BRCCRW-11111111</span>
                             </div>
@@ -728,7 +596,7 @@
                             </div>
                             <div class="card-dt-text">
                               <h6>Event Starts on</h6>
-                              <span>01 June 2022</span>
+                              <span>{{event.event_date}}</span>
                             </div>
                           </div>
                           <div class="card-bottom-item">
@@ -746,7 +614,7 @@
                             </div>
                             <div class="card-dt-text">
                               <h6>Paid Amount</h6>
-                              <span>AUD $50.00</span>
+                              <span>AUD {{event.price}}</span>
                             </div>
                           </div>
                           <div class="card-bottom-item">
@@ -760,6 +628,7 @@
                           </div>
                         </div>
                       </div>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
 from django.db import models
 from user.models import Profile 
+from django.contrib.auth.models import User
 import uuid 
 
 
@@ -28,5 +29,7 @@ class Event(models.Model):
     
     class Meta:
         ordering = ['-created_at']
+        
+
     
     

@@ -5,11 +5,15 @@ import uuid
 
 
 
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     email = models.EmailField(max_length=200, blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, blank=True, null=True)
+    # saved_events = models.ForeignKey(
+    #     Event, null=True, blank=True, on_delete=models.SET_NULL)
     bio = models.TextField(max_length=400, blank=True, null=True)
     profile_image = models.ImageField(null=True, blank=True,
                                      upload_to='profile-imgs', default='profile-imgs/avatar.svg')
