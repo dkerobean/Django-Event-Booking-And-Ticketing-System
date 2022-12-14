@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event
 from user.models import Profile
 from .forms import EventForm, VenueEvent
+from django.contrib import messages
 
 from django.db.models import Q
 
@@ -45,7 +46,9 @@ def createOnlineEvent(request):
             event = form.save(commit=False)
             event.organizer = profile 
             event.location = "online"
+            event.event_type = "Online"
             event.save()
+            messages.success(request, 'Event Created Successfully')
             return redirect('/')
              
     context = {
@@ -67,7 +70,9 @@ def createVenueEvent(request):
         if form.is_valid():
             event = form.save(commit=False)
             event.organizer = profile
+            event.event_type = "Venue"
             event.save()
+            messages.success(request, 'Event Created Successfully')
             return redirect('/')
         
     context = {
@@ -119,6 +124,48 @@ def eventDetail(request,pk):
 
 
 @login_required(login_url="user-login")
+def deleteEvent(request,pk):
+    
+    profile = request.user.profile 
+    event = Event.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        event.delete()
+        messages.success(request, 'Event Deleted Successfully')
+        return redirect('event-dashboard')
+    
+    context = {
+        'object':event,
+        'profile':profile
+    }
+    
+    return render(request, 'delete.html', context)
+
+
+@login_required(login_url="user-login")
+def updateEvent(request,pk):
+    
+    profile = request.user.profile
+    event = Event.objects.get(id=pk)
+    
+    form = EventForm(instance=event)
+    
+    if request.method == "POST":
+        form = VenueEvent(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Event Updated Successfully')
+            return redirect('event-dashboard')
+        
+    context = {
+        'profile':profile, 
+        'form':form
+    }
+
+    return render(request, 'user/update-event.html', context)
+
+
+@login_required(login_url="user-login")
 def checkout(request, pk):
     
     profile = request.user.profile
@@ -127,17 +174,16 @@ def checkout(request, pk):
     
 
     if request.method == 'POST':
-        event.participants.add(profile)
+        event.participants.add(profile) 
+        messages.success(request, 'Event Booked Successfully')
         return redirect('confirm-booking')
     
     
     context = {
         'profile': profile,
-        'event': event
+        'event': event, 
     }
 
-    
-    
     return render(request, 'event/checkout.html', context)
 
 
@@ -148,6 +194,7 @@ def bookingConfirm(request):
     
     context = {
         'profile':profile
+        
     }
     
     

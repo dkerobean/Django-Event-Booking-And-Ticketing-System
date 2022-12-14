@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" class="h-100">
   <head>
     <meta charset="utf-8" />
@@ -13,6 +14,8 @@
       type="image/png"
       href="https://www.gambolthemes.net/html-items/barren-html/disable-demo-link/images/fav.png"
     />
+
+    <link rel="stylesheet" type="text/css" href="styles/alert.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +42,27 @@
   </head>
   
   <body class="d-flex flex-column h-100">
-    {% block content%}
+    {% block content %}
+
+    <div style = "position:absolute; right:80px; top:80px;" class="">
+
+      {% if messages %}
+        {% for message in messages %}
+        <div  class="alert {{message.tags}}">
+        <input type="checkbox" id="alert1"/>
+        <label class="close" title="close" for="alert1">
+          <i class="icon-remove"></i>
+        </label>
+        <p class="inner">
+          <strong></strong> {{message}}
+        </p>
+        </div>
+        {% endfor %}
+      {% endif %}
+  
+    </div>
+
+    
     
     {% end block content%}
   </body>

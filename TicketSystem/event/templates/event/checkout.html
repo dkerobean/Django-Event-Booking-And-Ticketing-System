@@ -228,7 +228,9 @@
                 <div class="confirmation-btn">
                   <form action="" method="POST">
                     {% csrf_token %}
-                    <button class="main-btn btn-hover  mt-4" type="submit">Confirm & Pay </button>
+                    <p>{{tickets}}</p>
+                    <button class="main-btn btn-hover  mt-4" type="submit">Confirm & Pay </button>  
+                      
                   </form>
                   <span>Price is inclusive of all applicable GST</span>
                 </div>

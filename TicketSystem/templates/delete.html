@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+{% include 'includes/head.html' %}
+
+<div class="wrapper">
+<div class="breadcrumb-block">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-10">
+<div class="barren-breadcrumb">
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Delete</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="event-dt-block p-80">
+<div class="container">
+    {% include 'includes/alert.html' %}
+<div class="row justify-content-center">
+<div class="col-lg-12 col-md-12">
+<div class="main-title text-center checkout-title">
+<h3>Delete {{object}}</h3>
+</div>
+</div>
+<div class="col-xl-6 col-lg-8 col-md-12">
+<div class="create-block">
+<div class="row">
+
+<div class="col-md-8 mx-auto">
+<div class="main-card create-card mt-4">
+<div class="create-icon">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+<h4>Are you sure you want to delete {{object}}</h4>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="main-btn btn-hover h_40 w-100" value="Delete">
+</form>
+<br>
+<a href="{% url 'event-dashboard'%}" class="btn btn-hover h_40 w-100">Cancel</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}

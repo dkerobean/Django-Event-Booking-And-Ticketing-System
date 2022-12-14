@@ -5,23 +5,12 @@
   
   <body class="d-flex flex-column h-100">
 
+    
 
     {% block content%}
 
     
-    {% if messages %}
-  {% for message in messages %}
-    <div  class="alert {{message.tags}}">
-  <input type="checkbox" id="alert1"/>
-  <label class="close" title="close" for="alert1">
-    <i class="icon-remove"></i>
-  </label>
-  <p class="inner">
-    <strong></strong> {{message}}
-  </p>
-</div>
-  {% endfor %}
-{% endif %}
+    
     
     {% endblock content%}
 

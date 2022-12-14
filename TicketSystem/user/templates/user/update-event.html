@@ -1,0 +1,60 @@
+{% extends 'layouts/dashboard.html' %}
+
+{% block content %}
+{% include 'includes/dashboard-header.html' %}
+
+
+
+
+
+
+
+
+
+<div class="wrapper wrapper-body">
+  <div class="dashboard-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-main-title">
+            <h3><i class="fa-solid fa-solid fa-pen me-3"></i>Edit Event</h3>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="conversion-setup">
+            <div class="main-card mt-5">
+              <div class="bp-title position-relative">
+                <h4>Update</h4>
+                
+              </div>
+              <div class="about-details">
+                
+                <div class="about-step">
+                  <form action="" method="POST">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+
+                        <div class="col-lg-12 col-md-12">
+                        <div class="form-group mt-4">
+                        <label class="form-label">{{field.label}}*</label>
+                        {{field}}
+                        </div>
+                        </div>
+                        {% endfor %}
+                        <input type="submit" class="main-btn btn-hover h_40 w-100" value="Update">
+
+
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

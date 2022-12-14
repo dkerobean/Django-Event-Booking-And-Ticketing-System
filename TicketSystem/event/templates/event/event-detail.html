@@ -106,7 +106,7 @@
                 <div class="event-dt-right-content">
                   <h4>Organised by</h4>
                   <h5>{{event.organizer.name}}</h5>
-                  <a href="#">View Profile</a>
+                  <a href="{% url 'organizer-profile' event.organizer.id %}">View Profile</a>
                 </div>
               </div>
               <div class="event-dt-right-group">

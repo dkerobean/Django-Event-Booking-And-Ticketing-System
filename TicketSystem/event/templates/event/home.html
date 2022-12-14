@@ -23,8 +23,10 @@
       </div>
     </div>
   </div>
+  
   <div class="explore-events p-80">
     <div class="container">
+      {% include 'includes/alert.html' %}
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
           <div class="main-title">
@@ -90,6 +92,7 @@
                       <a href="#" class="thumbnail-img">
                         <img src="{{event.image.url}}" alt="" />
                       </a>
+                      
                       <span class="bookmark-icon" title="Bookmark"></span>
                     </div>
                     <div class="event-content">

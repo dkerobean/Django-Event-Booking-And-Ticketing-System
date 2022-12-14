@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
 from event.models import Event
+from django.contrib import messages
 
 from django.db.models import Q
 
@@ -29,6 +30,7 @@ def userLogin(request):
         
         if user is not None:
             login(request, user)
+            messages.success(request, "Login Success")
             return redirect('/')
         else:
             messages.error(request, "Username or Password is incorrect")
@@ -50,6 +52,7 @@ def userRegister(request):
             user.save()
             
             login(request, user)
+            messages.success(request, "User Created")
             return redirect('/')
             
     context  = {
@@ -61,6 +64,7 @@ def userRegister(request):
 
 def userLogout(request):
     logout(request)
+    messages.error(request, 'Logged Out')
     return redirect('/')
 
 
@@ -73,6 +77,7 @@ def updateUser(request):
         form = UpdateUserForm(request.POST, request.FILES, instance=profile)
         if form.is_valid:
             form.save()
+            messages.success('Updated Successfully')
             return redirect('user-profile')
             
                    
@@ -98,18 +103,85 @@ def userProfile(request, pk):
         form = UpdateUserForm(request.POST, request.FILES, instance=profiles)
         if form.is_valid:
             form.save()
+            messages.success(request, 'Update Successfull')
             return redirect('user-profile', profile.id)
     
     context = {
         'profile':profiles, 
         'form':form, 
         'organised_event':organised_event, 
-        'attending_event': attending_event
-        
+        'attending_event': attending_event, 
         
     }
     
     return render(request, 'user/user-profile.html', context)
+
+
+def organizerProfile(request, pk):
+    
+    profile = request.user.profile 
+    
+    organizer = Profile.objects.get(id=pk)
+    
+    organizer_events = organizer.event_set.all()
+    
+    context = {
+        'profile':profile, 
+        'organizer':organizer, 
+        'organizer_events': organizer_events
+    }
+    
+    return render(request, 'user/organizer-profile.html', context)
+
+
+def organizerDashboard(request):
+
+    profile = request.user.profile
+    organizer_events = profile.event_set.all()
+
+    context = {
+        'profile': profile,
+        'organizer_events': organizer_events
+    }
+
+    return render(request, 'user/organizer-dashboard.html', context)
+
+
+def eventDashboard(request):
+    
+    q = " "
+
+    event = Event.objects.all()
+    profile = request.user.profile
+    organizer_events = profile.event_set.all()
+    
+    
+    if request.GET.get('q'):
+        q = request.GET.get("q")
+        organizer_events = profile.event_set.filter(
+            title__icontains=q
+        )
+    
+
+    context = {
+        'profile': profile,
+        'organizer_events': organizer_events, 
+        'q':q
+        
+    }
+
+    return render(request, 'user/event-dashboard.html', context)
+
+
+
+
+
+
+
+
+
+
+    
 
 
 

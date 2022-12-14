@@ -6,5 +6,9 @@ urlpatterns = [
     path('register/', views.userRegister, name="user-register"),
     path('logout/', views.userLogout, name="user-logout"), 
     
-    path('profile/<str:pk>/', views.userProfile, name="user-profile")
+    path('profile/<str:pk>/', views.userProfile, name="user-profile"), 
+    path('profile/organizer/<str:pk>/', views.organizerProfile, name="organizer-profile"),
+    
+    path('dashboard/', views.organizerDashboard, name="organizer-dashboard"), 
+    path('dashboard/events/', views.eventDashboard, name="event-dashboard"),
 ]

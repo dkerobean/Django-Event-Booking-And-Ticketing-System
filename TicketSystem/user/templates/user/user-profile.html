@@ -1,7 +1,10 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+
   {% include 'includes/head.html' %}
+
+  
 
   <div class="modal fade" id="FFModal" tabindex="-1" aria-labelledby="FFModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
@@ -147,10 +150,11 @@
                 </div>
                 <div class="user-description">
                   <p>{{profile.bio|slice:"200"}}...</p>
+                  
                 </div>
                 <div class="user-btns">
                   {% if organised_event.count > 0 %}
-                  <a href="#" class="co-main-btn co-btn-width min-width d-inline-block h_40">Organizer Dashboard <i class="fa-solid fa-right-left ms-3"></i></a>
+                  <a href="{% url 'organizer-dashboard' %}" class="co-main-btn co-btn-width min-width d-inline-block h_40">Organizer Dashboard <i class="fa-solid fa-right-left ms-3"></i></a>
                   {% endif %}
                 </div>
                 <div class="profile-social-link">
@@ -181,6 +185,7 @@
               <div class="right-profile">
                 <div class="profile-tabs">
                   <ul class="nav nav-pills nav-fill p-2 garren-line-tab" id="myTab" role="tablist">
+                      {% include 'includes/alert.html' %}
                     <li class="nav-item">
                       <a class="nav-link active" id="feed-tab" data-bs-toggle="tab" href="organiser_profile_view.html#feed" role="tab" aria-controls="feed" aria-selected="true"><i class="fa-solid fa-house"></i>Home</a>
                     </li>
@@ -260,7 +265,7 @@
                                     <div class="evnt-time">{{event.event_date}}</div>
                                     <div class="event-btn-group">
                                       <button class="esv-btn saved-btn me-2"><i class="fa-regular fa-bookmark me-2"></i>Save</button>
-                                      <button class="esv-btn me-2" onclick="window.location.href='online_event_detail_view.html'"><i class="fa-solid fa-arrow-up-from-bracket me-2"></i>View</button>
+                                      <input class="esv-btn me-2" type="button" onclick="location.href='{% url 'event-detail' event.id%}';" value="View" />
                                     </div>
                                   </div>
                                 </div>

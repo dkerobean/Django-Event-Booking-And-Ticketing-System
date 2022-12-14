@@ -1,8 +1,8 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-  {% include 'includes/head.html' %}
-
+  
+{% include 'includes/head.html' %}
   <div class="wrapper">
     <div class="breadcrumb-block">
       <div class="container">
@@ -22,8 +22,10 @@
         </div>
       </div>
     </div>
+    
     <div class="event-dt-block p-80">
       <div class="container">
+        {% include 'includes/alert.html' %}
         <div class="row justify-content-center">
           <div class="col-xl-5 col-lg-7 col-md-10">
             <div class="booking-confirmed-content">

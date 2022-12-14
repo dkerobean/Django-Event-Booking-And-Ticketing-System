@@ -21,3 +21,28 @@ $("#days").html(days+"<span>Days</span>");$("#hours").html(hours+"<span>Hours</s
 setInterval(function(){makeTimer();},300);$(document).ready(function(){$('.dropdown-submenu a.submenu-item').on("click",function(e){$(this).next('ul').toggle();e.stopPropagation();e.preventDefault();});});$(document).ready(function(){$('input[type="radio"]').click(function(){var inputValue=$(this).attr("value");var targetBox=$("."+inputValue);$(".event-box").not(targetBox).hide();$(targetBox).show();});});window.oncontextmenu=function(){return false;}
 $(document).keydown(function(event){if(event.keyCode==123){return false;}
 else if((event.ctrlKey&&event.shiftKey&&event.keyCode==73)||(event.ctrlKey&&event.shiftKey&&event.keyCode==74)){return false;}});
+
+
+$(".close").click(function () {
+    $(this)
+        .parent(".alert")
+        .fadeOut();
+});
+
+
+
+
+// Invoke Functions Call on Document Loaded
+document.addEventListener('DOMContentLoaded', function () {
+    hljs.highlightAll();
+});
+
+
+let alertWrapper = document.querySelector('.alert')
+let alertClose = document.querySelector('.alert__close')
+
+if (alertWrapper) {
+    alertClose.addEventListener('click', () =>
+        alertWrapper.style.display = 'none'
+    )
+}
