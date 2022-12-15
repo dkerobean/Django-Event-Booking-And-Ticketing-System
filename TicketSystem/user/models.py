@@ -10,6 +10,7 @@ import uuid
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    followers = models.ManyToManyField(User, blank=True, related_name="followers")
     email = models.EmailField(max_length=200, blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, blank=True, null=True)

@@ -8,7 +8,12 @@ urlpatterns = [
     
     path('profile/<str:pk>/', views.userProfile, name="user-profile"), 
     path('profile/organizer/<str:pk>/', views.organizerProfile, name="organizer-profile"),
+    path('profile/<str:pk>/follow', views.addFollower, name="add-follower"),
+    path('profile/<str:pk>/unfollow', views.removeFollower, name="remove-follower"),
+
     
     path('dashboard/', views.organizerDashboard, name="organizer-dashboard"), 
     path('dashboard/events/', views.eventDashboard, name="event-dashboard"),
+    
+    
 ]

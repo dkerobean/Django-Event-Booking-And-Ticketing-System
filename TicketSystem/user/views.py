@@ -93,9 +93,11 @@ def updateUser(request):
 def userProfile(request, pk):
     
     profiles = request.user.profile
+    user = User.objects.all()
     profile = User.objects.get(id=pk)
     organised_event = Event.objects.filter(organizer__name=profiles.name) 
     attending_event = Event.objects.filter(participants__name=profiles.name)
+
 
     form = UpdateUserForm(instance=profiles)
 
@@ -105,30 +107,85 @@ def userProfile(request, pk):
             form.save()
             messages.success(request, 'Update Successfull')
             return redirect('user-profile', profile.id)
+        
+        
+    following = profiles.followers.all()
+    followers = profiles.user.followers.all()
+
+    
+            
+    number_of_followings = len(following)
+    number_of_followers = len(followers)
+
     
     context = {
         'profile':profiles, 
         'form':form, 
         'organised_event':organised_event, 
         'attending_event': attending_event, 
+        'number_of_followers': number_of_followers,
+        'number_of_followings': number_of_followings,
+        'followers':followers, 
+        'following':following
         
     }
     
     return render(request, 'user/user-profile.html', context)
 
 
+def addFollower(request, pk):
+    user_profile = request.user.profile
+    organizer_profile = Profile.objects.get(id=pk)
+    
+    user_profile.followers.add(organizer_profile.user)
+    
+    return redirect('organizer-profile', organizer_profile.id)
+
+
+def removeFollower(request, pk):
+    user_profile = request.user.profile
+    organizer_profile = Profile.objects.get(id=pk)
+    
+    user_profile.followers.remove(organizer_profile.user)
+    
+    return redirect('organizer-profile', organizer_profile.id)
+
+
 def organizerProfile(request, pk):
     
     profile = request.user.profile 
-    
     organizer = Profile.objects.get(id=pk)
-    
     organizer_events = organizer.event_set.all()
+    
+    following = profile.followers.all()
+    followers = organizer.followers.all()
+    
+    is_following = None
+
+    for follower in following:
+        if follower == organizer.user:
+            is_following = True
+            break
+        else:
+            is_following = False
+
+    
+
+    number_of_followings = len(following)
+    number_of_followers = len(followers)
     
     context = {
         'profile':profile, 
         'organizer':organizer, 
-        'organizer_events': organizer_events
+        'organizer_events': organizer_events,
+        'number_of_followers': number_of_followers, 
+        'is_following': is_following, 
+        'number_of_followers': number_of_followers,
+        'number_of_followings': number_of_followings,
+        'followers': followers,
+        'following': following
+
+        
     }
     
     return render(request, 'user/organizer-profile.html', context)
