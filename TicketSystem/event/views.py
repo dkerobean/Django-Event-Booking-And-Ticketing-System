@@ -9,13 +9,13 @@ from django.db.models import Q
 
 
 def home(request):
-    user = request.user
-    profile = Profile.objects.get(user=user)
+    profile = None
+    if request.user.is_authenticated:
+        profile = request.user.profile
     events = Event.objects.all()
     
     context = {
         'profile':profile,
-        'user':user, 
         'events':events
     }
     

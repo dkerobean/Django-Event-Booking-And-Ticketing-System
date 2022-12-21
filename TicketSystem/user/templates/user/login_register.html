@@ -78,7 +78,7 @@
                 <span>or</span>
               </div>
               <div class="social-btns-list">
-                <button class="social-login-btn">
+                <button class="social-login-btn" >
                   <svg
                     class="me-2"
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +109,9 @@
                       ></path>
                     </g>
                   </svg>
-                  Sign in with Google
+                   <a href="http://127.0.0.1:8000/accounts/google/login/?process=login">Sign in with Google</a> 
                 </button>
-                <button class="social-login-btn">
+                {% comment %} <button class="social-login-btn">
                   <svg
                     class="me-2"
                     xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,9 @@
                     </g>
                   </svg>
                   Sign in with Facebook
-                </button>
+                </button> {% endcomment %}
+
+                
               </div>
               <div class="new-sign-link">
                 New to Barren?<a

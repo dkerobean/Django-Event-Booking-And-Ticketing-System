@@ -89,14 +89,14 @@
                             <img src="{{event.image.url}}" alt="" />
                           </div>
                           <div class="card-event-dt">
-                            <h5>{{event.title}} {{event.event_type.lower}}-tab </h5>
+                            <h5>{{event.title}}</h5>
                           </div>
                         </div>
                         <div class="dropdown">
                           <button class="option-btn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                           <div class="dropdown-menu dropdown-menu-right">
                             <a href="{% url 'event-detail' event.id %}" class="dropdown-item"><i class="fa-solid fa-eye me-3"></i>Preview Event</a>
-                            <a href="{% url 'update-event' event.id %}" class="dropdown-item"><i class="fa-solid fa-pen">Update Event</i></a>
+                            <a href="{% url 'update-event' event.id %}" class="dropdown-item"><i class="fa-solid fa-pen me-3"></i>Update Event</a>
                             <a href="{% url 'delete-event' event.id %}" class="dropdown-item delete-event"><i class="fa-solid fa-trash-can me-3"></i>Delete</a>
                           </div>
                         </div>

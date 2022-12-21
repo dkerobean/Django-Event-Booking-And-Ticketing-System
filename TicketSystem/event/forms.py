@@ -17,7 +17,7 @@ class EventForm(ModelForm):
             field.widget.attrs.update({'class': 'form-control h_50'})
             
             self.fields["event_date"].widget.attrs.update(
-                {'class': 'datepicker-here'})
+                {'placeholder':"MM/DD/YYYY"})
             
             
             
@@ -26,7 +26,7 @@ class VenueEvent(ModelForm):
         model = Event
         fields = [
             'title', 'description', 'event_date', 'category', 'description', 'price',
-            'total_tickets', 'event_time', 'duration', 'image'
+            'total_tickets', 'event_time', 'duration', 'image', 'gps_location'
         ]
 
     def __init__(self, *args, **kwargs):
@@ -34,6 +34,9 @@ class VenueEvent(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'form-control h_50'})
+            
+            self.fields["event_date"].widget.attrs.update(
+                {'placeholder': "MM/DD/YYYY"})
 
              
     

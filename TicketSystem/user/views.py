@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from event.models import Event
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from django.db.models import Q
 
@@ -42,6 +43,8 @@ def userLogin(request):
     return render(request, 'user/login_register.html',context)
 
 
+
+
 def userRegister(request):
     
     form = CustomUserCreationForm()
@@ -68,8 +71,8 @@ def userLogout(request):
     return redirect('/')
 
 
+@login_required(login_url="user-login")
 def updateUser(request):
-    
     profile = request.user.profile
     form = UpdateUserForm(instance=profile)
     
@@ -89,9 +92,8 @@ def updateUser(request):
     return render(request, 'user/user-profile.html', context)
 
 
-
+@login_required(login_url="user-login")
 def userProfile(request, pk):
-    
     profiles = request.user.profile
     user = User.objects.all()
     profile = User.objects.get(id=pk)
@@ -133,6 +135,7 @@ def userProfile(request, pk):
     return render(request, 'user/user-profile.html', context)
 
 
+@login_required(login_url="user-login")
 def addFollower(request, pk):
     user_profile = request.user.profile
     organizer_profile = Profile.objects.get(id=pk)
@@ -142,6 +145,7 @@ def addFollower(request, pk):
     return redirect('organizer-profile', organizer_profile.id)
 
 
+@login_required(login_url="user-login")
 def removeFollower(request, pk):
     user_profile = request.user.profile
     organizer_profile = Profile.objects.get(id=pk)
@@ -156,6 +160,7 @@ def organizerProfile(request, pk):
     profile = request.user.profile 
     organizer = Profile.objects.get(id=pk)
     organizer_events = organizer.event_set.all()
+    
     
     following = profile.followers.all()
     followers = organizer.followers.all()
@@ -191,8 +196,8 @@ def organizerProfile(request, pk):
     return render(request, 'user/organizer-profile.html', context)
 
 
+@login_required(login_url="user-login")
 def organizerDashboard(request):
-
     profile = request.user.profile
     organizer_events = profile.event_set.all()
 
@@ -204,6 +209,7 @@ def organizerDashboard(request):
     return render(request, 'user/organizer-dashboard.html', context)
 
 
+@login_required(login_url="user-login")
 def eventDashboard(request):
     
     q = " "

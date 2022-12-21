@@ -123,13 +123,11 @@
                   <span class="user-email"><a href="#" class="__cf_email__" data-cfemail="0f656e7c7c666c6e4f6a776e627f636a216c6062">{{ organizer.email }}</a></span>
                 </div>
                 <div class="ff-block">
-                  <a href="attendee_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>{{number_of_followers}}</span>Followers</a>
-                  <a href="attendee_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>{{number_of_followings}}</span>Following</a>
+                  <a href="attendee_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>{{number_of_followings}}</span>Followers</a>
+                  <a href="attendee_profile_view.html#" class="" role="button" data-bs-toggle="modal" data-bs-target="#FFModal"><span>{{number_of_followers}}</span>Following</a>
                 </div>
                 <div class="user-description">
                   <p>{{ organizer.bio }}</p>
-                  
-                  
 
                 </div>
                 {% if profile.name == organizer.name %}
@@ -143,16 +141,12 @@
                 </form>
 
                 {% else %}
-
-                <form action="{% url 'add-follower' organizer.id %}" method="POST">
-                  {% csrf_token %}
-                    <button type="submit" class="main-btn btn-hover min-width h_40 me-2">Follow</button>
-                    </form>
-                    {% endif %}
+                <a class="main-btn btn-hover min-width h_40 me-2" href="{% url 'add-follower' organizer.id %}">Follow</a>
+                {% endif %}
                   <button class="co-main-btn min-width h_40" data-bs-toggle="modal" data-bs-target="#contactModal">Contant Us</button>
                 </div>
                 
-                {%endif%}
+                {% endif %}
                 <div class="profile-social-link">
                   <h6>Find me on</h6>
                   

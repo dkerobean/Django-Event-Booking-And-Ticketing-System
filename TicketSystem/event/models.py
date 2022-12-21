@@ -4,11 +4,22 @@ from django.contrib.auth.models import User
 import uuid 
 
 
+CATEGORY = (
+    ('Art', 'Art'),
+    ('Business', 'Business'),
+    ('Concert', 'Business'),
+    ('Workshop', 'Workshop'),
+    ('Volunteer', 'Volunteer'),
+    ('Sports', 'Sports'),
+    ('Free', 'Free'),
+
+
+)
 class Event(models.Model):
     organizer = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=300, null=True, blank=True)
     description = models.TextField(max_length=700, null=True)
-    category = models.CharField(max_length=100, null=True)
+    category = models.CharField(max_length=100, choices=CATEGORY, default="other", null=True)
     event_type = models.CharField(max_length=100, null=True, blank=True)
     duration = models.IntegerField(null=True, blank=True)
     gps_location = models.CharField(max_length=200, null=True, blank=True)

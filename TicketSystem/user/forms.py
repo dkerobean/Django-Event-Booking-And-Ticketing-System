@@ -24,7 +24,7 @@ class UpdateUserForm(ModelForm):
     class Meta:
         model = Profile
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user','followers']
         
         
     def __init__(self, *args, **kwargs):

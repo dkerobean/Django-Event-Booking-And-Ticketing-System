@@ -16,4 +16,7 @@ urlpatterns = [
     path('dashboard/events/', views.eventDashboard, name="event-dashboard"),
     
     
+
+    
+    
 ]
