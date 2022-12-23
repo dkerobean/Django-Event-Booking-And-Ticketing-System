@@ -30,14 +30,16 @@ INSTALLED_APPS = [
     
     'event.apps.EventConfig',
     'user.apps.UserConfig',
+    'api.apps.ApiConfig',
     
-   
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    
+    'rest_framework',
 
 ]
 
