@@ -2,9 +2,9 @@ from django.http import JsonResponse
 from .serializers import EventSerializer
 from event.models import Event 
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
-
+from rest_framework.permissions import IsAuthenticated 
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -17,6 +17,7 @@ def getRoutes(request):
     return Response(routes)
 
 
+
 @api_view(['GET'])
 def getEvents(request):
     events = Event.objects.all()
@@ -24,13 +25,16 @@ def getEvents(request):
     return Response(serializer.data)
 
 
+
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def addEvents(request):
     serializer = EventSerializer(data=request.data)
     if serializer.is_valid():
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
-    
+
+@permission_classes([IsAuthenticated])
 @api_view(['PUT','GET','DELETE'])   
 def eventDetail(request,pk):
     

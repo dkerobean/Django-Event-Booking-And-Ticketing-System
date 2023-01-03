@@ -4,6 +4,7 @@ from .models import Event
 from user.models import Profile
 from .forms import EventForm, VenueEvent
 from django.contrib import messages
+from django.db.models import F
 
 from django.db.models import Q
 
@@ -172,6 +173,9 @@ def checkout(request, pk):
     event = Event.objects.get(id=pk)
     
     
+ 
+
+
 
     if request.method == 'POST':
         event.participants.add(profile) 
@@ -182,6 +186,7 @@ def checkout(request, pk):
     context = {
         'profile': profile,
         'event': event, 
+        'left':left
     }
 
     return render(request, 'event/checkout.html', context)
